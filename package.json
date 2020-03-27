@@ -1,12 +1,20 @@
 {
+  "homepage": "https://cswitzer85.github.io/project3/",
   "name": "project3",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
+      "eslintConfig": {
+        "extends": "react-app"
+      },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cswitzer85/project3.git"
@@ -17,11 +25,34 @@
   "bugs": {
     "url": "https://github.com/cswitzer85/project3/issues"
   },
-  "homepage": "https://github.com/cswitzer85/project3#readme",
+
   "dependencies": {
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
-    "sequelize": "^5.21.5"
+    "sequelize": "^5.21.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2"
+
   }
 }
