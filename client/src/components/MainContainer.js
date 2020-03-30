@@ -1,44 +1,33 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavTabs from "./NavTabs";
 import Home from "./pages/Home";
 import Secondary from "./pages/Secondary";
 import Tertiary from "./pages/ Tertiary";
 import Quaternary from "./pages/Quaternary";
 
-class MainContentContainer extends Component {
-  state = {
-    currentPage: "Home"
-  };
+function MainContentContainer(){
+  const [specialityPizza, setSpecialityPizza] = useState({});
 
-  handlePageChange = page => {
-    this.setState({ currentPage: page });
-  };
+  useEffect(() => {
+    //load needed info from database
+  }, []);
 
-  renderPage = () => {
-    if (this.state.currentPage === "Home") {
-      return <Home />;
-    } else if (this.state.currentPage === "Secondary") {
-      return <Secondary />;
-    } else if (this.state.currentPage === "Tertiary") {
-      return <Tertiary />;
-    } else if (this.state.currentPage === "Quaternary") {
-      return <Quaternary />;
-    } else {
-      return <Home />;
-    }
-  };
-
-  render() {
+  
     return (
       <div>
-        <NavTabs
-          currentPage={this.state.currentPage}
-          handlePageChange={this.handlePageChange}
-        />
-        {this.renderPage()}
+        <Router>
+          <NavTabs/>
+
+          <Switch>
+            <Route exact path="/Secondary" component={Secondary}/>
+            <Route exact path="/Tertiary" component={Tertiary}/>
+            <Route exact path="/Quaternary" component={Quaternary}/>
+            <Route component={Home}/>
+          </Switch>
+        </Router>
       </div>
     );
-  }
 }
 
 export default MainContentContainer;

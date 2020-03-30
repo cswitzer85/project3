@@ -2,8 +2,16 @@ import React from "react";
 
 const Home = () => (
   <div>
-    <h1>Home Page</h1>
-    <p>Some words in a "p" tag...</p>
+    <div className="container mt-4" style={{border: "2px dotted red"}}>
+      <div className="row justify-content-center">
+        <button className="btn btn-danger mr-5">
+          Login
+        </button>
+        <button className="btn btn-danger">
+          Sign Up
+        </button>
+      </div>
+    </div>
   </div>
 );
 
