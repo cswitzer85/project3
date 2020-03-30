@@ -22,6 +22,11 @@ app.use(express.static("public"));
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
+    const path = require('path');
+// Express server will serve index.html for build
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
   }
 
 // We need to use sessions to keep track of our user's login status
