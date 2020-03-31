@@ -39,6 +39,15 @@ function NavTabs(props) {
           Quaternary
         </a>
       </li>
+      <li className="nav-item">
+        <a
+          href="#SignupForm"
+          onClick={() => props.handlePageChange("SignupForm")}
+          className={props.currentPage === "SignupForm" ? "nav-link active" : "nav-link"}
+        >
+          Sign UP
+        </a>
+      </li>
     </ul>
   );
 }

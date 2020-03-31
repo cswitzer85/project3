@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Secondary from "./pages/Secondary";
 import Tertiary from "./pages/ Tertiary";
 import Quaternary from "./pages/Quaternary";
+import SignupForm from "./pages/SignupForm"
 
 class MainContentContainer extends Component {
   state = {
@@ -23,6 +24,8 @@ class MainContentContainer extends Component {
       return <Tertiary />;
     } else if (this.state.currentPage === "Quaternary") {
       return <Quaternary />;
+    } else if (this.state.currentPage === "SignupForm") {
+      return <SignupForm />
     } else {
       return <Home />;
     }
