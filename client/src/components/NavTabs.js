@@ -48,6 +48,15 @@ function NavTabs(props) {
           Sign UP
         </a>
       </li>
+      <li className="nav-item">
+        <a
+          href="#LoginForm"
+          onClick={() => props.handlePageChange("LoginForm")}
+          className={props.currentPage === "LoginForm" ? "nav-link active" : "nav-link"}
+        >
+          Login
+        </a>
+      </li>
     </ul>
   );
 }

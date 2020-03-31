@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { login } from './UserFunctions'
+// import { login } from './UserFunctions'
 
-class Login extends Component {
+class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
@@ -25,7 +25,7 @@ class Login extends Component {
             password: this.state.password
         }
 
-        login(user).then(res => {
+        LoginForm(user).then(res => {
             if (!res.error) {
                 this.props.history.push(`/profile`)
             }
@@ -75,4 +75,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default LoginForm
