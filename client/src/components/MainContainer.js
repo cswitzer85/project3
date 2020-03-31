@@ -13,7 +13,7 @@ function MainContentContainer(){
     //load needed info from database
   }, []);
 
-  
+
     return (
       <div>
         <Router>
