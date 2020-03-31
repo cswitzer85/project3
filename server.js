@@ -4,7 +4,7 @@ var session = require("express-session");
 
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
-require("dotenv").config();
+require(`dotenv`).config();
 
 //requireing routes folder
 const routes = require("./routes");
@@ -36,7 +36,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring our routes
-app.use(routes);
+require("./routes/api-routes")(app);
+// app.use(routes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
