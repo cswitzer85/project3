@@ -17,10 +17,10 @@ function NavTabs() {
       </li>
       <li className="nav-item">
         <Link
-          to="/Secondary"
-          className={location.pathname === "Secondary" ? "nav-link active" : "nav-link"}
+          to="/InfoForm"
+          className={location.pathname === "InfoForm" ? "nav-link active" : "nav-link"}
         >
-          Secondary
+          Information form
         </Link>
       </li>
       <li className="nav-item">
