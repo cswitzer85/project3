@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
   const path = require('path');
 // Express server will serve index.html for build
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
 });
 }
 // We need to use sessions to keep track of our user's login status
