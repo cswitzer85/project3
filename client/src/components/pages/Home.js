@@ -1,7 +1,12 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import PizzaCard from "../items/PizzaCard";
 
-const Home = () => (
+function Home() {
+  
+  const location = useLocation();
+
+  return(
   <div>
     <div className="container mt-4" style={{border: "2px dotted red"}}>
 
@@ -10,12 +15,16 @@ const Home = () => (
         <h3 className="text-center">Log in or Sign Up to order</h3>
       </div>
       <div className="row justify-content-center">
-        <button className="btn btn-danger mr-5">
-          Login
-        </button>
-        <button className="btn btn-danger">
-          Sign Up
-        </button>
+        <Link to="/LoginForm">
+          <button className="btn btn-danger mr-5">
+            Login
+          </button>
+        </Link>
+        <Link to="SignupForm">
+          <button className="btn btn-danger">
+            Sign Up
+          </button>
+        </Link>
       </div>
 
       {/* Speciality Pizzas */}
@@ -47,6 +56,8 @@ const Home = () => (
 
     </div>
   </div>
+
 );
+}
 
 export default Home;

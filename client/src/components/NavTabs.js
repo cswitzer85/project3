@@ -39,6 +39,22 @@ function NavTabs() {
           Quaternary
         </Link>
       </li>
+      <li className="nav-item">
+        <Link
+          to="/SignupForm"
+          className={location.currentPage === "SignupForm" ? "nav-link active" : "nav-link"}
+        >
+          Sign UP
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link
+          to="/LoginForm"
+          className={location.currentPage === "LoginForm" ? "nav-link active" : "nav-link"}
+        >
+          Login
+        </Link>
+      </li>
     </ul>
   );
 }
