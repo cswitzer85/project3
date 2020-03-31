@@ -1,61 +1,59 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
-function NavTabs(props) {
+function NavTabs() {
+
+  const location = useLocation();
+
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">
-        <a
-          href="#home"
-          onClick={() => props.handlePageChange("Home")}
-          className={props.currentPage === "Home" ? "nav-link active" : "nav-link"}
+        <Link
+          to="/"
+          className={location.pathname === "Home" ? "nav-link active" : "nav-link"}
         >
           Home
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="#Secondary"
-          onClick={() => props.handlePageChange("Secondary")}
-          className={props.currentPage === "Secondary" ? "nav-link active" : "nav-link"}
+        <Link
+          to="/Secondary"
+          className={location.pathname === "Secondary" ? "nav-link active" : "nav-link"}
         >
           Secondary
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="#Tertiary"
-          onClick={() => props.handlePageChange("Tertiary")}
-          className={props.currentPage === "Tertiary" ? "nav-link active" : "nav-link"}
+        <Link
+          to="/Tertiary"
+          className={location.pathname === "Tertiary" ? "nav-link active" : "nav-link"}
         >
           Tertiary
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="#Quaternary"
-          onClick={() => props.handlePageChange("Quaternary")}
-          className={props.currentPage === "Quaternary" ? "nav-link active" : "nav-link"}
+        <Link
+          to="/Quaternary"
+          className={location.pathname === "Quaternary" ? "nav-link active" : "nav-link"}
         >
           Quaternary
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="#SignupForm"
-          onClick={() => props.handlePageChange("SignupForm")}
-          className={props.currentPage === "SignupForm" ? "nav-link active" : "nav-link"}
+        <Link
+          to="/SignupForm"
+          className={location.currentPage === "SignupForm" ? "nav-link active" : "nav-link"}
         >
           Sign UP
-        </a>
+        </Link>
       </li>
       <li className="nav-item">
-        <a
-          href="#LoginForm"
-          onClick={() => props.handlePageChange("LoginForm")}
-          className={props.currentPage === "LoginForm" ? "nav-link active" : "nav-link"}
+        <Link
+          to="/LoginForm"
+          className={location.currentPage === "LoginForm" ? "nav-link active" : "nav-link"}
         >
           Login
-        </a>
+        </Link>
       </li>
     </ul>
   );

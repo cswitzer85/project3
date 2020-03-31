@@ -48,8 +48,3 @@ db.sequelize.sync().then(function () {
         );
     });
 });
-
-//Temporary server start before Database exists
-app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-  });
