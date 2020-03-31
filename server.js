@@ -21,9 +21,13 @@ app.use(express.static("public"));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
-
+  app.use(express.static("client/build"));
+  const path = require('path');
+// Express server will serve index.html for build
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+}
 // We need to use sessions to keep track of our user's login status
 app.use(
     session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -34,7 +38,13 @@ app.use(passport.session());
 // Requiring our routes
 app.use(routes);
 
-//Temporary server start before Database exists
-app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+//Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> :earth_americas:  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
   });
+});
