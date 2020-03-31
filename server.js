@@ -38,13 +38,13 @@ app.use(passport.session());
 // Requiring our routes
 app.use(routes);
 
-//Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> :earth_americas:  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+// Syncing our database and logging a message to the user upon success
+db.sequelize.sync().then(function () {
+    app.listen(PORT, function () {
+        console.log(
+            "==> :earth_americas:  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+            PORT,
+            PORT
+        );
+    });
 });

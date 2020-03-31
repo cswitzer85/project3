@@ -31,12 +31,6 @@ module.exports = function (sequelize, DataTypes) {
             null
         );
     });
-    User.associate = function (models) {
-        // Associating User with Blog
-        // When an User is deleted, also delete any associated Blogs
-        User.hasMany(models.Blog, {
-            onDelete: "cascade"
-        });
-    };
+
     return User;
 };
