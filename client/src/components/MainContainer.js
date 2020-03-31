@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavTabs from "./NavTabs";
 import Home from "./pages/Home";
-import Secondary from "./pages/Secondary";
+import InfoForm from "./pages/InfoForm";
 import Tertiary from "./pages/ Tertiary";
 import Quaternary from "./pages/Quaternary";
 import SignupForm from "./pages/SignupForm";
@@ -21,7 +21,7 @@ function MainContentContainer(){
           <NavTabs/>
 
           <Switch>
-            <Route exact path="/Secondary" component={Secondary}/>
+            <Route exact path="/InfoForm" component={InfoForm}/>
             <Route exact path="/Tertiary" component={Tertiary}/>
             <Route exact path="/Quaternary" component={Quaternary}/>
             <Route exact path="/LoginForm" component={LoginForm}/>
