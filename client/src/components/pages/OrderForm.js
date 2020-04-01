@@ -12,6 +12,7 @@ function OrderForm() {
       name: 'Choose One'
     }],
     num: 1,
+    delivery: true,
     finalize: false
   });
 
@@ -53,6 +54,16 @@ function OrderForm() {
     setOrders({...orders, num: orders.num + 1, pizzas: temp});
   }
 
+  const updateDelivery = (event) => {
+    if(event.target.id === "delivery" && !orders.delivery){
+      setOrders({...orders, delivery: true});
+    }
+    else if(event.target.id === "pickup" && orders.delivery){
+      setOrders({...orders, delivery: false});
+    }
+    console.log(orders.delivery);
+  }
+
   const form =
     (
       <div className="row">
@@ -80,12 +91,30 @@ function OrderForm() {
       (
         <div>
         <h2 className="text-center">Your Order</h2>
+
+        {/* Display current order */}
         {orders.pizzas.map((pizza, index) => {
           if(pizza.name !== "Choose One"){
           return (<h4 className="row justify-content-center">{pizza.size} {pizza.name}</h4>);
           }
           return null;
         })}
+
+        {/* Delivery or Pickup */}
+        <div className="row justify-content-center">
+          <div className="form-check">
+            <input className="form-check-input" onClick={updateDelivery} name="delivery" type="radio" id="delivery" checked={orders.delivery}/>
+            <label for="delivery">Delivery</label>
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="form-check">
+            <input className="form-check-input" onClick={updateDelivery} name="delivery" type="radio" id="pickup" checked={!orders.delivery}/>
+            <label for="pickup">Pickup</label>
+          </div>
+        </div>
+
+        {/* Go back button */}
         <div className="row justify-content-center">
           <button className="btn btn-danger" onClick={goBack}>go back to order creation</button>
         </div>
