@@ -7,4 +7,5 @@ INSERT INTO locations  (name, address, phone)
     ("ZaLat - Downtown Plano","1032 E 15th St, Plano, Texas 75074", "(972) 422–9001"),
     ("ZaLat - Denton"," 1120 W Hickory St, Denton, TX 76201", " (940) 654-4200"),
     ("ZaLat - Ft Worth","843 Foch St., Ft. Worth, TX 76107", "(817)-780-0420");
-SELECT * FROM goq1yqkgg75pzc9m.locations;
+-- SELECT * FROM goq1yqkgg75pzc9m.locations;
+ 
