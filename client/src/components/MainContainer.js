@@ -7,13 +7,18 @@ import Tertiary from "./pages/ Tertiary";
 import Quaternary from "./pages/Quaternary";
 import SignupForm from "./pages/SignupForm";
 import LoginForm from "./pages/LoginForm";
+import API from "../utils/API";
 
 function MainContentContainer(){
   const [specialityPizza, setSpecialityPizza] = useState({});
 
+
   useEffect(() => {
-    //load needed info from database
-  }, []);
+                    //load needed info from database
+    API.getRecipes()
+      .then(res => setSpecialityPizza(res.data))
+      .catch(err => console.log(err));
+                  }, []);
 
     return (
       <div>
