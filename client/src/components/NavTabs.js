@@ -25,10 +25,10 @@ function NavTabs() {
       </li>
       <li className="nav-item">
         <Link
-          to="/Tertiary"
-          className={location.pathname === "Tertiary" ? "nav-link active" : "nav-link"}
+          to="/OrderForm"
+          className={location.pathname === "OrderForm" ? "nav-link active" : "nav-link"}
         >
-          Tertiary
+          Order Form
         </Link>
       </li>
       <li className="nav-item">

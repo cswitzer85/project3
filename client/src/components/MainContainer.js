@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavTabs from "./NavTabs";
 import Home from "./pages/Home";
 import InfoForm from "./pages/InfoForm";
-import Tertiary from "./pages/ Tertiary";
+import OrderForm from "./pages/OrderForm";
 import Quaternary from "./pages/Quaternary";
 import SignupForm from "./pages/SignupForm";
 import LoginForm from "./pages/LoginForm";
@@ -22,7 +22,7 @@ function MainContentContainer(){
 
           <Switch>
             <Route exact path="/InfoForm" component={InfoForm}/>
-            <Route exact path="/Tertiary" component={Tertiary}/>
+            <Route exact path="/OrderForm" component={OrderForm}/>
             <Route exact path="/Quaternary" component={Quaternary}/>
             <Route exact path="/LoginForm" component={LoginForm}/>
             <Route exact path="/SignupForm" component={SignupForm}/>
