@@ -18,4 +18,4 @@ INSERT INTO specialties  (name, description, image)
     ("The Veggie", "Spinach, mushrooms, red onions, black olives, red bell peppers and basil", "https://zalatpizza.com/wp-content/uploads/2015/01/The-Veggie-JPG-360x360.jpg"),
     ("The Crave", "Beef pepperoni, salami, cracked black pepper and red onions", "https://zalatpizza.com/wp-content/uploads/2015/01/The-Crave-JPG-360x360.jpg"),
     ("Chicken Teriyaki", "Chicken, red onions, Teriyaki sauce base & swirl, cracked black pepper, cilantro garnish", "https://zalatpizza.com/wp-content/uploads/2015/01/Chicken-Teriyaki-JPG-360x360.jpg");
-SELECT * FROM specialties;
+-- SELECT * FROM specialties;
