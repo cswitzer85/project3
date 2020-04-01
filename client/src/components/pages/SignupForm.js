@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import { register } from './UserFunctions'
+import axios from "axios"
 
 class SignupForm extends Component {
     constructor() {
@@ -12,26 +13,38 @@ class SignupForm extends Component {
             errors: {}
         }
 
-        this.onChange = this.onChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value })
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value })
+        console.log(event.target.value);
     }
-    onSubmit(e) {
-        e.preventDefault()
+    handleSubmit(event) {
+        event.preventDefault()
+        // console.log(this.target.value);
 
-        const newUser = {
-            first_name: this.state.first_name,
-            last_name: this.state.last_name,
+        axios.post ("/api/signup",  {
+            FirstName: this.state.first_name,
+            LastName: this.state.last_name,
             email: this.state.email,
             password: this.state.password
-        }
-
-        SignupForm(newUser).then(res => {
-            this.props.history.push(`/login`)
         })
+
+            .then(response => {
+                console.log(response)
+                if (!response.data.errmsg) {
+                    console.log("successful signup")
+                   window.location.replace("/LoginForm")
+                } else {
+                    console.log("username already taken")
+                }
+            }).catch(error => {
+                console.log("signup error: ")
+                console.log(error)
+
+            })
     }
 
     render() {
@@ -49,7 +62,7 @@ class SignupForm extends Component {
                                     name="first_name"
                                     placeholder="Enter your first name"
                                     value={this.state.first_name}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                             <div className="form-group">
@@ -60,7 +73,7 @@ class SignupForm extends Component {
                                     name="last_name"
                                     placeholder="Enter your lastname name"
                                     value={this.state.last_name}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                             <div className="form-group">
@@ -71,7 +84,7 @@ class SignupForm extends Component {
                                     name="email"
                                     placeholder="Enter email"
                                     value={this.state.email}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                             <div className="form-group">
@@ -82,13 +95,13 @@ class SignupForm extends Component {
                                     name="password"
                                     placeholder="Password"
                                     value={this.state.password}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                             <button
                                 type="submit"
                                 className="btn btn-lg btn-primary btn-block"
-                            >
+                                onClick={this.handleSubmit} >
                                 Register!
               </button>
                         </form>
