@@ -1,20 +1,56 @@
-import React, { useState } from "react";
-import { render } from "@testing-library/react";
+import React, { useState, useEffect } from "react";
+//import { render } from "@testing-library/react";
+import PizzaForm from "../items/PizzaForm";
 
 function OrderForm() {
 
+  const placeholderPizzas = ["cheese", "pepperoni"];
+
   const [orders, setOrders] = useState({
-    num: 1,
     pizzas: [{
-      size: "",
-      name: ""
-    }]
+      size: '14"',
+      name: 'Choose One'
+    }],
+    num: 1,
+    finalize: false
   });
 
-  let finalize = false;
+  // useEffect(() => {
+  //   console.log(orders.pizzas);
+  // });
 
   const onSubmit = (event) => {
     event.preventDefault();
+    setOrders({...orders, finalize: true});
+  }
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    // destructuring doesn't work here for some reason
+    // const [name, value] = event.target;
+    const dataid = event.target.dataset.id;
+    const temp = orders.pizzas.slice(0);
+    temp[dataid] = {
+      ...temp[dataid],
+      [event.target.name]: event.target.value
+    }
+    console.log(temp[dataid]);
+    setOrders({...orders, pizzas: temp});
+  }
+
+  const goBack = (event) => {
+    event.preventDefault();
+    setOrders({...orders, finalize: false});
+  }
+
+  const handleAddPizza = (event) => {
+    event.preventDefault();
+    const temp = orders.pizzas.slice(0);
+    temp.push({
+      size: '14"',
+      name: 'Choose One'
+    });
+    setOrders({...orders, num: orders.num + 1, pizzas: temp});
   }
 
   const form =
@@ -24,29 +60,13 @@ function OrderForm() {
 
         <form noValidate onSubmit={onSubmit}>
 
-          {/* pizza size */}
-          <div className="form-group">
-            <label>Size</label>
-            <select className="form-control">
-              <option selected>14"</option>
-              <option>18"</option>
-            </select>
-          </div>
-
-          {/* pizza type */}
-          <div className="form-group">
-            <label>Type</label>
-            <select className="form-control">
-              <option selected>Choose one</option>
-              {/* Add options from database here */}
-              {/* placeholder options */}
-              <option>pepperoni</option>
-              <option>cheese</option>
-            </select>
-          </div>
+          {/* Pizza Form takes  id, sizeValue, typeValue, handleChange, pizzas*/}
+          {orders.pizzas.map((pizza, index) => <PizzaForm
+          id={index} sizeValue={pizza.size} typeValue={pizza.name}
+          handleChange={handleChange} pizzas={placeholderPizzas}/>)}
 
           <div className="row justify-content-around">
-            <button className="btn btn-success">Add another pizza</button>
+            <button className="btn btn-success" onClick={handleAddPizza}>Add another pizza</button>
             <button className="btn btn-primary" type="submit">Finalize Order</button>
           </div>
 
@@ -56,9 +76,25 @@ function OrderForm() {
     </div>
     );
 
+  const finalizeForm = 
+      (
+        <div>
+        <h2 className="text-center">Your Order</h2>
+        {orders.pizzas.map((pizza, index) => {
+          if(pizza.name !== "Choose One"){
+          return (<h4 className="row justify-content-center">{pizza.size} {pizza.name}</h4>);
+          }
+          return null;
+        })}
+        <div className="row justify-content-center">
+          <button className="btn btn-danger" onClick={goBack}>go back to order creation</button>
+        </div>
+        </div>
+      );
+
   return (
     <div className="container">
-      {finalize ? <p>test</p> : form}
+      {orders.finalize ? finalizeForm : form}
     </div>
   );
 }
