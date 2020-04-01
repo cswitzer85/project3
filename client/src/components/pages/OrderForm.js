@@ -64,6 +64,10 @@ function OrderForm() {
     console.log(orders.delivery);
   }
 
+  const finalizeOrder = (event) => {
+    //finish order here
+  }
+
   const form =
     (
       <div className="row">
@@ -101,6 +105,7 @@ function OrderForm() {
         })}
 
         {/* Delivery or Pickup */}
+        <h5 className="text-center">Delivery or Pickup</h5>
         <div className="row justify-content-center">
           <div className="form-check">
             <input className="form-check-input" onClick={updateDelivery} name="delivery" type="radio" id="delivery" checked={orders.delivery}/>
@@ -116,7 +121,8 @@ function OrderForm() {
 
         {/* Go back button */}
         <div className="row justify-content-center">
-          <button className="btn btn-danger" onClick={goBack}>go back to order creation</button>
+          <button className="btn btn-danger mr-5" onClick={goBack}>go back to order creation</button>
+          <button className="btn btn-primary ml-5" onClick={finalizeOrder}>Order</button>
         </div>
         </div>
       );
