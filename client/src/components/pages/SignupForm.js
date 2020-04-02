@@ -90,7 +90,7 @@ class SignupForm extends Component {
                                     type="email"
                                     className="form-control"
                                     name="email"
-                                    placeholder="Enter email"
+                                    placeholder="Enter your email"
                                     value={this.state.email}
                                     onChange={this.handleChange}
                                 />
@@ -134,7 +134,7 @@ class SignupForm extends Component {
                                     type="text"
                                     className="form-control"
                                     name="city"
-                                    placeholder="Enter city"
+                                    placeholder="Enter your city"
                                     value={this.state.city}
                                     onChange={this.handleChange}
                                 />
@@ -145,7 +145,7 @@ class SignupForm extends Component {
                                     type="password"
                                     className="form-control"
                                     name="password"
-                                    placeholder="Password"
+                                    placeholder="Enter your password"
                                     value={this.state.password}
                                     onChange={this.handleChange}
                                 />
