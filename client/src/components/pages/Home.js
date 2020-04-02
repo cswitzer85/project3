@@ -25,6 +25,7 @@ function Home() {
   const handleLogout = (event) => {
     event.preventDefault();
     API.logout()
+      .then(window.location.reload())
       .catch(err => console.log(err));
   }
 
