@@ -20,7 +20,7 @@ function NavTabs() {
           to="/InfoForm"
           className={location.pathname === "InfoForm" ? "nav-link active" : "nav-link"}
         >
-          Information form
+          Information Form
         </Link>
       </li>
       <li className="nav-item">
@@ -44,7 +44,7 @@ function NavTabs() {
           to="/SignupForm"
           className={location.currentPage === "SignupForm" ? "nav-link active" : "nav-link"}
         >
-          Sign UP
+          Sign Up
         </Link>
       </li>
       <li className="nav-item">

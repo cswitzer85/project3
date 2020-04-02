@@ -23,7 +23,7 @@ class SignupForm extends Component {
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value })
-        console.log(event.target.value);
+        // console.log(event.target.value);
     }
     handleSubmit(event) {
         event.preventDefault()
@@ -79,7 +79,7 @@ class SignupForm extends Component {
                                     type="text"
                                     className="form-control"
                                     name="last_name"
-                                    placeholder="Enter your lastname name"
+                                    placeholder="Enter your last name"
                                     value={this.state.last_name}
                                     onChange={this.handleChange}
                                 />
@@ -112,7 +112,7 @@ class SignupForm extends Component {
                                     type="text"
                                     className="form-control"
                                     name="street_address"
-                                    placeholder="Enter your Address"
+                                    placeholder="Enter your address"
                                     value={this.state.street_address}
                                     onChange={this.handleChange}
                                 />
@@ -123,7 +123,7 @@ class SignupForm extends Component {
                                     type="text"
                                     className="form-control"
                                     name="zip_code"
-                                    placeholder="Enter your Zipcode"
+                                    placeholder="Enter your zipcode"
                                     value={this.state.zip_code}
                                     onChange={this.handleChange}
                                 />
@@ -155,7 +155,7 @@ class SignupForm extends Component {
                                 className="btn btn-lg btn-primary btn-block"
                                 onClick={this.handleSubmit} >
                                 Register!
-              </button>
+                            </button>
                         </form>
                     </div>
                 </div>
