@@ -1,4 +1,5 @@
 import React from "react";
+import API from "../../utils/API";
 
 function PizzaForm(props) {
 
@@ -24,7 +25,7 @@ function PizzaForm(props) {
             <select name="name" data-id={props.id} value={props.typeValue} onChange={props.handleChange} className="form-control">
               <option key="1">Choose One</option>
               {/* Add options from database here */}
-              {props.pizzas.map((pizza, index) => <option key={index+2}>{pizza}</option>)}
+              {props.pizzas.map((pizza, index) => <option key={index+2}>{pizza.name}</option>)}
             </select>
           </div>
         </div>
