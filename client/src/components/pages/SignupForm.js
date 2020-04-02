@@ -9,6 +9,10 @@ class SignupForm extends Component {
             first_name: '',
             last_name: '',
             email: '',
+            phone_number: '',
+            street_address: '',
+            zip_code: '',
+            city: '',
             password: '',
             errors: {}
         }
@@ -29,6 +33,10 @@ class SignupForm extends Component {
             FirstName: this.state.first_name,
             LastName: this.state.last_name,
             email: this.state.email,
+            PhoneNumber: this.state.phone_number,
+            StreetAddress: this.state.street_address,
+            ZipCode: this.state.zip_code,
+            City: this.state.city,
             password: this.state.password
         })
 
@@ -77,13 +85,57 @@ class SignupForm extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="email">Email address</label>
+                                <label htmlFor="email">Email</label>
                                 <input
                                     type="email"
                                     className="form-control"
                                     name="email"
                                     placeholder="Enter email"
                                     value={this.state.email}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="phone_number">Phone Number</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="phone_number"
+                                    placeholder="Enter your phone number"
+                                    value={this.state.phone_number}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="street_address">Address</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="street_address"
+                                    placeholder="Enter your Address"
+                                    value={this.state.street_address}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="zip_code">Zipcode</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="zip_code"
+                                    placeholder="Enter your Zipcode"
+                                    value={this.state.zip_code}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="City">City</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="city"
+                                    placeholder="Enter city"
+                                    value={this.state.city}
                                     onChange={this.handleChange}
                                 />
                             </div>
