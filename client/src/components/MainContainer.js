@@ -12,6 +12,8 @@ import API from "../utils/API";
 function MainContentContainer(){
   const [specialityPizza, setSpecialityPizza] = useState({});
 
+  // const [User, setUser] = useState({loggedIn: false})
+
 
   useEffect(() => {
                     //load needed info from database
