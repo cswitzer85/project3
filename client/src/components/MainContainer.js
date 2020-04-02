@@ -10,13 +10,27 @@ import LoginForm from "./pages/LoginForm";
 import API from "../utils/API";
 
 function MainContentContainer(){
-  const [specialityPizza, setSpecialityPizza] = useState({});
 
-  // const [User, setUser] = useState({loggedIn: false})
+  const [specialityPizza, setSpecialityPizza] = useState(
+    []
+  );
+
+
+    const [orders, setOrders] = useState({
+      pizzas: [
+        {
+          size: '14"',
+          name: "Choose One"
+        }
+      ],
+      num: 1,
+      delivery: true,
+      finalize: false
+    });
 
 
   useEffect(() => {
-                    //load needed info from database
+   //load needed info from database
     API.getRecipes()
       .then(res => setSpecialityPizza(res.data))
       .catch(err => console.log(err));
@@ -25,15 +39,26 @@ function MainContentContainer(){
     return (
       <div>
         <Router>
-          <NavTabs/>
+          <NavTabs />
 
           <Switch>
-            <Route exact path="/InfoForm" component={InfoForm}/>
-            <Route exact path="/OrderForm" component={OrderForm}/>
-            <Route exact path="/Quaternary" component={Quaternary}/>
-            <Route exact path="/LoginForm" component={LoginForm}/>
-            <Route exact path="/SignupForm" component={SignupForm}/>
-            <Route component={Home}/>
+            <Route exact path="/InfoForm" component={InfoForm} />
+            <Route exact path="/Quaternary" component={Quaternary} />
+            <Route exact path="/LoginForm" component={LoginForm} />
+            <Route exact path="/SignupForm" component={SignupForm} />
+            <Route exact path="/OrderForm" render={props => 
+            (
+              //Sends in specialities pizza info for use in order forms
+                <OrderForm
+                  {...props}
+                  orders={orders}
+                  setOrders={setOrders}
+                  specialityPizza={specialityPizza}
+                  setSpecialityPizza={setSpecialityPizza}
+                />
+              )}
+            />
+            <Route component={Home} />
           </Switch>
         </Router>
       </div>
