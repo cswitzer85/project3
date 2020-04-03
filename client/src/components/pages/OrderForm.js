@@ -71,14 +71,16 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
       }
       return null;
     });
-    axios.post("/pizza/orders",  {
-      name: (`${User.FirstName} ${User.LastName}`),
-      user_order: pizzaString,
-      user_address: `${User.StreetAddress}, ${User.City} ${User.ZipCode}`,
-      delivery: (orders.delivery)
-    })
-    .then(() => console.log("Order submitted!"))
-    .catch((err) => console.log(err));
+    axios
+      .post("/pizza/orders", {
+        name: `${User.FirstName} ${User.LastName}`,
+        user_order: pizzaString,
+        user_address: `${User.StreetAddress}, ${User.City} ${User.ZipCode}`,
+        delivery: orders.delivery,
+      })
+      .then(() => console.log("Order submitted!"))
+      .then(() => (window.location.href = "/pizza/orders"))
+      .catch((err) => console.log(err));
 
   };
 
