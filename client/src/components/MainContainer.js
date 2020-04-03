@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import InfoForm from "./pages/InfoForm";
+// import InfoForm from "./pages/InfoForm";
 import OrderForm from "./pages/OrderForm";
-import Quaternary from "./pages/Quaternary";
+// import Quaternary from "./pages/Quaternary";
 import SignupForm from "./pages/SignupForm";
 import LoginForm from "./pages/LoginForm";
 import Header from "./items/Header";
+import PastOrders from "./pages/PastOrders";
 import API from "../utils/API";
 
 function MainContentContainer(){
@@ -39,17 +40,18 @@ function MainContentContainer(){
     return (
       <div>
         <Router>
-
-          <Header/>
+          <Header />
 
           <Switch>
-            <Route exact path="/InfoForm" component={InfoForm} />
-            <Route exact path="/Quaternary" component={Quaternary} />
+            {/* <Route exact path="/InfoForm" component={InfoForm} />
+            <Route exact path="/Quaternary" component={Quaternary} /> */}
             <Route exact path="/LoginForm" component={LoginForm} />
             <Route exact path="/SignupForm" component={SignupForm} />
-            <Route exact path="/OrderForm" render={props => 
-            (
-              //Sends in specialities pizza info for use in order forms
+            <Route
+              exact
+              path="/OrderForm"
+              render={(props) => (
+                //Sends in specialities pizza info for use in order forms
                 <OrderForm
                   {...props}
                   orders={orders}
@@ -59,6 +61,7 @@ function MainContentContainer(){
                 />
               )}
             />
+            <Route exact path="/pizza/orders" component={PastOrders}/>
             <Route component={Home} />
           </Switch>
         </Router>

@@ -13,7 +13,7 @@ export default {
     return axios.get("/api/logout");
   },
 
-  // getOrder: function() {
-  //   return axios.post("/pizza/orders");
-  // }
+  getOrders: function() {
+    return axios.get("/pizza/orders");
+  }
 };

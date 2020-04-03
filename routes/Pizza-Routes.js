@@ -25,6 +25,12 @@ router.post("/orders", function(req, res) {
 });
 
 
+router.get("/orders", function (req, res) {
+  db.orders.findAll({}).then(function (data) {
+    res.send(data);
+  });
+});
+
 
 // Export routes for server.js to use.
 module.exports = router;
