@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Redirect } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom"
 // import { login } from './UserFunctions'
 import axios from "axios"
 
@@ -99,6 +99,9 @@ class LoginForm extends Component {
                             </button>
                         </form>
                     </div>
+                </div>
+                <div className="row justify-content-center mt-2">
+                    <p className="text-center">Don't have an account? <Link to="/SignupForm">Sign up here!</Link></p>
                 </div>
             </div>
         )
