@@ -22,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         PhoneNumber: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         StreetAddress: {
