@@ -68,7 +68,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
     console.log(orders);
     axios.post("/pizza/orders",  {
       name: "",
-      ingredients: "",
+      // ingredients: "",
       user_order: pizzaString,
       user_address: "",
       delivery: (orders.delivery)
