@@ -2,12 +2,18 @@ import React, { useState, useEffect } from "react";
 //import { render } from "@testing-library/react";
 import PizzaForm from "../items/PizzaForm";
 import axios from "axios";
-import API from "../../utils/API"
-import Axios from "axios";
+import API from "../../utils/API";
 
 
 function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
 
+  const [User, setUser] = useState({});
+
+  useEffect(() => {
+    API.getUserData()
+      .then(res => setUser(res.data))
+      .catch(err => console.log(err));
+  }, []);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -64,13 +70,10 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
       }
       return null;
     });
-    console.log(pizzaString);
-    console.log(orders);
     axios.post("/pizza/orders",  {
-      name: "",
-      // ingredients: "",
+      name: (`${User.FirstName} ${User.LastName}`),
       user_order: pizzaString,
-      user_address: "",
+      user_address: `${User.StreetAddress}, ${User.City} ${User.ZipCode}`,
       delivery: (orders.delivery)
     })
     .then(() => console.log("Order submitted!"))
