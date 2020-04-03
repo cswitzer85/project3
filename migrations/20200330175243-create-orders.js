@@ -11,9 +11,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      ingredients: {
-        type: Sequelize.STRING
-      },
+      // ingredients: {
+      //   type: Sequelize.STRING
+      // },
       user_order: {
         type: Sequelize.STRING
       },
