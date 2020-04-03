@@ -40,7 +40,7 @@ class LoginForm extends Component {
                     
                     // update the state to redirect to home
                     this.setState({
-                        redirectTo: "/OrderForm"
+                        redirectTo: "/"
                     })
                 }
             }).catch(error => {
