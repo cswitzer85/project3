@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 //import { render } from "@testing-library/react";
 import PizzaForm from "../items/PizzaForm";
 import axios from "axios";
@@ -83,6 +84,8 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
 
 
   const form = (
+    <div>
+
     <div className="row">
       <div className="col-md-6 mt-5 mx-auto">
         <form noValidate onSubmit={onSubmit}>
@@ -98,6 +101,11 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
           ))}
 
           <div className="row justify-content-around">
+            <Link to="/">
+              <button className="btn btn-primary" style={{width: "118px"}}>
+                Menu
+              </button>
+            </Link>
             <button className="btn btn-success" onClick={handleAddPizza}>
               Add Another Pizza
             </button>
@@ -107,6 +115,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 

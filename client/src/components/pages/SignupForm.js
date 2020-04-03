@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import { register } from './UserFunctions'
+import { Link } from "react-router-dom";
 import axios from "axios"
 
 class SignupForm extends Component {
@@ -158,6 +159,9 @@ class SignupForm extends Component {
                             </button>
                         </form>
                     </div>
+                </div>
+                <div className="row justify-content-center mt-2">
+                    <p>Already have an account? <Link to="LoginForm">Log in here!</Link></p>
                 </div>
             </div>
         )
