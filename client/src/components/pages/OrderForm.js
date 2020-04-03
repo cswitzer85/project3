@@ -70,9 +70,6 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
       }
       return null;
     });
-    console.log(pizzaString);
-    console.log(orders);
-    console.log(User);
     axios.post("/pizza/orders",  {
       name: (`${User.FirstName} ${User.LastName}`),
       ingredients: "",
