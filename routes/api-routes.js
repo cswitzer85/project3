@@ -46,7 +46,7 @@ var passport = require("../config/passport");
   });
 
   // Route for getting some data about our user to be used client side
-  Router.get("/user_data", function(req, res) {
+  Router.get("/userData", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -54,12 +54,12 @@ var passport = require("../config/passport");
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        FirstName: req.user.FirstName,
-        LastName: req.user.LastName,
-        PhoneNumber: req.user.PhoneNumber,
-        StreetAddress: req.user.StreetAddress,
-        City: req.user.City,
-        ZipCode: req.user.ZipCode,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        phoneNumber: req.user.phoneNumber,
+        streetAddress: req.user.streetAddress,
+        city: req.user.city,
+        zipcode: req.user.zipcode,
         email: req.user.email,
         id: req.user.id
       });

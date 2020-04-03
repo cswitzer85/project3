@@ -1,5 +1,5 @@
 USE goq1yqkgg75pzc9m;
-INSERT INTO toppings (name)
+INSERT INTO Toppings (name)
     values
     ("Bacon"),
     ("Balsamic Glaze"),
@@ -37,4 +37,4 @@ INSERT INTO toppings (name)
     ("Tabasco"),
     ("Teriyaki"),
     ("Valentina");
--- SELECT * FROM goq1yqkgg75pzc9m.toppings;
+-- SELECT * FROM goq1yqkgg75pzc9m.Toppings;

@@ -1,5 +1,5 @@
 USE goq1yqkgg75pzc9m;
-INSERT INTO locations  (name, address, phone)
+INSERT INTO Locations  (name, address, phone)
     values  
     ("ZaLat – Fitzhugh Dallas","2519 N Fitzhugh Ave, Dallas, Texas 75204", "(214) 370-9786" ),
 	("ZaLat – Cedars (Lamar St)","1701 South Lamar Street, Dallas, Texas 75215", "(214) 484-8368"),
@@ -7,5 +7,5 @@ INSERT INTO locations  (name, address, phone)
     ("ZaLat - Downtown Plano","1032 E 15th St, Plano, Texas 75074", "(972) 422–9001"),
     ("ZaLat - Denton"," 1120 W Hickory St, Denton, TX 76201", " (940) 654-4200"),
     ("ZaLat - Ft Worth","843 Foch St., Ft. Worth, TX 76107", "(817)-780-0420");
--- SELECT * FROM goq1yqkgg75pzc9m.locations;
+-- SELECT * FROM goq1yqkgg75pzc9m.Locations;
  

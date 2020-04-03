@@ -5,11 +5,11 @@ module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
         // The email cannot be null, and must be a proper email before creation
         
-        FirstName: {
+        firstName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        LastName: {
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -21,19 +21,19 @@ module.exports = function (sequelize, DataTypes) {
                 isEmail: true
             }
         },
-        PhoneNumber: {
+        phoneNumber: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        StreetAddress: {
+        streetAddress: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        ZipCode: {
+        zipcode: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        City: {
+        city: {
             type: DataTypes.STRING,
             alloNull: false,
         },

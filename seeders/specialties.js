@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert('specialties', [{
+      return queryInterface.bulkInsert('Specialties', [{
         name: "The Zealot",
         description: "Beef pepperoni, sausage, salami, black olives, red onions, mushrooms, red bell, chives",
         image: "https://zalatpizza.com/wp-content/uploads/2016/08/Zealot-JPG-360x360.jpg",
@@ -143,7 +143,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
 
-       return queryInterface.bulkDelete('specialties', null, {});
+       return queryInterface.bulkDelete('Specialties', null, {});
   
   }
 };

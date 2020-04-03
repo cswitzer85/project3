@@ -68,7 +68,7 @@ function Home() {
       {/* Login and Signup buttons */}
       <div className="row justify-content-center">
         {/* change email to name when we have access to that */}
-        <h3 className="text-center">{User.email? `Welcome ${User.FirstName}` : "Log in or Sign Up to order"}</h3>
+        <h3 className="text-center">{User.email? `Welcome ${User.firstName}` : "Log in or Sign Up to order"}</h3>
       </div>
       <div className="row justify-content-center">
         {User.email? userButtons() : guestButtons()}

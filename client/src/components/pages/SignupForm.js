@@ -31,13 +31,13 @@ class SignupForm extends Component {
         // console.log(this.target.value);
 
         axios.post ("/api/signup",  {
-            FirstName: this.state.first_name,
-            LastName: this.state.last_name,
+            firstName: this.state.first_name,
+            lastName: this.state.last_name,
             email: this.state.email,
-            PhoneNumber: this.state.phone_number,
-            StreetAddress: this.state.street_address,
-            ZipCode: this.state.zip_code,
-            City: this.state.city,
+            phoneNumber: this.state.phone_number,
+            streetAddress: this.state.street_address,
+            zipcode: this.state.zip_code,
+            city: this.state.city,
             password: this.state.password
         })
 

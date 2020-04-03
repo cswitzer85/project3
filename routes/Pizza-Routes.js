@@ -6,13 +6,13 @@ var db = require("../models");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/specialties", function(req, res) {
-  db.specialties.findAll({}).then(function(data) {
+  db.Specialties.findAll({}).then(function(data) {
     res.send(data);
   });
 });
 
 router.post("/orders", function(req, res) {
-  db.orders.create(
+  db.Orders.create(
     req.body
   )
   .then(function(data) {
@@ -26,7 +26,7 @@ router.post("/orders", function(req, res) {
 
 
 router.get("/orders", function (req, res) {
-  db.orders.findAll({}).then(function (data) {
+  db.Orders.findAll({}).then(function (data) {
     res.send(data);
   });
 });

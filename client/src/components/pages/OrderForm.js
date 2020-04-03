@@ -6,7 +6,7 @@ import axios from "axios";
 import API from "../../utils/API";
 
 
-function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
+function OrderForm({ Orders, setOrders, specialityPizza, setSpecialityPizza }) {
 
   const [User, setUser] = useState({});
 
@@ -18,7 +18,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
 
   const onSubmit = event => {
     event.preventDefault();
-    setOrders({ ...orders, finalize: true });
+    setOrders({ ...Orders, finalize: true });
     // axios.post ("/orders", {
     //   orders: orders
     // })
@@ -29,43 +29,43 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
     // destructuring doesn't work here for some reason
     // const [name, value] = event.target;
     const dataid = event.target.dataset.id;
-    const temp = orders.pizzas.slice(0);
+    const temp = Orders.pizzas.slice(0);
     temp[dataid] = {
       ...temp[dataid],
       [event.target.name]: event.target.value
     };
     console.log(temp[dataid]);
-    setOrders({ ...orders, pizzas: temp });
+    setOrders({ ...Orders, pizzas: temp });
   };
 
   const goBack = event => {
     event.preventDefault();
-    setOrders({ ...orders, finalize: false });
+    setOrders({ ...Orders, finalize: false });
   };
 
   const handleAddPizza = event => {
     event.preventDefault();
-    const temp = orders.pizzas.slice(0);
+    const temp = Orders.pizzas.slice(0);
     temp.push({
       size: '14"',
       name: "Choose One"
     });
-    setOrders({ ...orders, num: orders.num + 1, pizzas: temp });
+    setOrders({ ...Orders, num: Orders.num + 1, pizzas: temp });
   };
 
   const updateDelivery = event => {
-    if (event.target.id === "delivery" && !orders.delivery) {
-      setOrders({ ...orders, delivery: true });
-    } else if (event.target.id === "pickup" && orders.delivery) {
-      setOrders({ ...orders, delivery: false });
+    if (event.target.id === "delivery" && !Orders.delivery) {
+      setOrders({ ...Orders, delivery: true });
+    } else if (event.target.id === "pickup" && Orders.delivery) {
+      setOrders({ ...Orders, delivery: false });
     }
-    console.log(orders.delivery);
+    console.log(Orders.delivery);
   };
 
   const finalizeOrder = event => {
     //finish order here
     let pizzaString = "";
-    orders.pizzas.map((pizza) => {
+    Orders.pizzas.map((pizza) => {
       if(pizza.name !== "Choose One" && pizza.name){
         pizzaString += ` ${pizza.size} ${pizza.name} `;
       }
@@ -73,10 +73,10 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
     });
     axios
       .post("/pizza/orders", {
-        name: `${User.FirstName} ${User.LastName}`,
-        user_order: pizzaString,
-        user_address: `${User.StreetAddress}, ${User.City} ${User.ZipCode}`,
-        delivery: orders.delivery,
+        name: `${User.firstName} ${User.lastName}`,
+        userOrder: pizzaString,
+        userAddress: `${User.streetAddress}, ${User.city} ${User.zipcode}`,
+        delivery: Orders.delivery,
       })
       .then(() => console.log("Order submitted!"))
       .then(() => (window.location.href = "/pizza/orders"))
@@ -92,7 +92,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
       <div className="col-md-6 mt-5 mx-auto">
         <form noValidate onSubmit={onSubmit}>
           {/* Pizza Form takes  id, sizeValue, typeValue, handleChange, pizzas*/}
-          {orders.pizzas.map((pizza, index) => (
+          {Orders.pizzas.map((pizza, index) => (
             <PizzaForm
               id={index}
               sizeValue={pizza.size}
@@ -126,7 +126,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
       <h2 className="text-center">Your Order</h2>
 
       {/* Display current order */}
-      {orders.pizzas.map((pizza, index) => {
+      {Orders.pizzas.map((pizza, index) => {
         if (pizza.name !== "Choose One") {
           return (
             <h4 className="row justify-content-center">
@@ -147,7 +147,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
             name="delivery"
             type="radio"
             id="delivery"
-            checked={orders.delivery}
+            checked={Orders.delivery}
           />
           <label for="delivery">Delivery</label>
         </div>
@@ -160,7 +160,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
             name="delivery"
             type="radio"
             id="pickup"
-            checked={!orders.delivery}
+            checked={!Orders.delivery}
           />
           <label for="pickup">Pickup</label>
         </div>
@@ -179,7 +179,7 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
   );
 
   return (
-    <div className="container">{orders.finalize ? finalizeForm : form}</div>
+    <div className="container">{Orders.finalize ? finalizeForm : form}</div>
   );
 }
 

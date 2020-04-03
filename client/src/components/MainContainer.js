@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-// import InfoForm from "./pages/InfoForm";
 import OrderForm from "./pages/OrderForm";
-// import Quaternary from "./pages/Quaternary";
 import SignupForm from "./pages/SignupForm";
 import LoginForm from "./pages/LoginForm";
 import Header from "./items/Header";
@@ -17,7 +15,7 @@ function MainContentContainer(){
   );
 
 
-    const [orders, setOrders] = useState({
+    const [Orders, setOrders] = useState({
       pizzas: [
         {
           size: '14"',
@@ -43,8 +41,6 @@ function MainContentContainer(){
           <Header />
 
           <Switch>
-            {/* <Route exact path="/InfoForm" component={InfoForm} />
-            <Route exact path="/Quaternary" component={Quaternary} /> */}
             <Route exact path="/LoginForm" component={LoginForm} />
             <Route exact path="/SignupForm" component={SignupForm} />
             <Route
@@ -54,7 +50,7 @@ function MainContentContainer(){
                 //Sends in specialities pizza info for use in order forms
                 <OrderForm
                   {...props}
-                  orders={orders}
+                  Orders={Orders}
                   setOrders={setOrders}
                   specialityPizza={specialityPizza}
                   setSpecialityPizza={setSpecialityPizza}

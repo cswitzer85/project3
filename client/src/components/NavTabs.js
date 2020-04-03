@@ -15,14 +15,6 @@ function NavTabs() {
           Home
         </Link>
       </li>
-      {/* <li className="nav-item">
-        <Link
-          to="/InfoForm"
-          className={location.pathname === "InfoForm" ? "nav-link active" : "nav-link"}
-        >
-          Information Form
-        </Link>
-      </li> */}
       <li className="nav-item">
         <Link
           to="/OrderForm"
@@ -31,14 +23,6 @@ function NavTabs() {
           Order Form
         </Link>
       </li>
-      {/* <li className="nav-item">
-        <Link
-          to="/Quaternary"
-          className={location.pathname === "Quaternary" ? "nav-link active" : "nav-link"}
-        >
-          Quaternary
-        </Link>
-      </li> */}
       <li className="nav-item">
         <Link
           to="/SignupForm"

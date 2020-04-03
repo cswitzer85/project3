@@ -1,5 +1,5 @@
 USE goq1yqkgg75pzc9m;
-INSERT INTO specialties  (name, description, image)
+INSERT INTO Specialties  (name, description, image)
     values
     ("The Zealot","Beef pepperoni, sausage, salami, black olives, red onions, mushrooms, red bell, chives", "https://zalatpizza.com/wp-content/uploads/2016/08/Zealot-JPG-360x360.jpg"),
     ("Pho Shizzle", "Chicken, red bell peppers, caramelized onions, cilantro, basil, hoisin & sriracha swirl", "https://zalatpizza.com/wp-content/uploads/2015/01/Pho-Shizzle-JPG-360x360.jpg"),
@@ -18,4 +18,4 @@ INSERT INTO specialties  (name, description, image)
     ("The Veggie", "Spinach, mushrooms, red onions, black olives, red bell peppers and basil", "https://zalatpizza.com/wp-content/uploads/2015/01/The-Veggie-JPG-360x360.jpg"),
     ("The Crave", "Beef pepperoni, salami, cracked black pepper and red onions", "https://zalatpizza.com/wp-content/uploads/2015/01/The-Crave-JPG-360x360.jpg"),
     ("Chicken Teriyaki", "Chicken, red onions, Teriyaki sauce base & swirl, cracked black pepper, cilantro garnish", "https://zalatpizza.com/wp-content/uploads/2015/01/Chicken-Teriyaki-JPG-360x360.jpg");
--- SELECT * FROM specialties;
+-- SELECT * FROM Specialties;
