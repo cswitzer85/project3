@@ -63,7 +63,7 @@ class SignupForm extends Component {
                         <form noValidate onSubmit={this.onSubmit}>
                             <h1 className="h3 mb-3 font-weight-normal">Register</h1>
                             <div className="form-group">
-                                <label htmlFor="name">First name</label>
+                                <label htmlFor="name">First Name</label>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -74,7 +74,7 @@ class SignupForm extends Component {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="name">Last name</label>
+                                <label htmlFor="name">Last Name</label>
                                 <input
                                     type="text"
                                     className="form-control"
