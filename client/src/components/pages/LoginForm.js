@@ -68,9 +68,9 @@ class LoginForm extends Component {
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
                         <form>
-                            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                            <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
                             <div className="form-group">
-                                <label htmlFor="email">Email address</label>
+                                <label htmlFor="email">Email Address</label>
                                 <input
                                     type="email"
                                     className="form-control"
@@ -95,7 +95,7 @@ class LoginForm extends Component {
                                 type="submit"
                                 className="btn btn-lg btn-primary btn-block" 
                                 onClick={this.handleSubmit} >
-                                Sign in
+                            Sign In
                             </button>
                         </form>
                     </div>

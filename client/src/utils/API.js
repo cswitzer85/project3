@@ -11,5 +11,9 @@ export default {
 
   logout: function() {
     return axios.get("/api/logout");
-  }
+  },
+
+  // getOrder: function() {
+  //   return axios.post("/pizza/orders");
+  // }
 };

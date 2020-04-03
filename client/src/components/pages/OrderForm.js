@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 //import { render } from "@testing-library/react";
 import PizzaForm from "../items/PizzaForm";
+import axios from "axios";
+import API from "../../utils/API"
+import Axios from "axios";
 
 
 function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
@@ -9,6 +12,9 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
   const onSubmit = event => {
     event.preventDefault();
     setOrders({ ...orders, finalize: true });
+    // axios.post ("/orders", {
+    //   orders: orders
+    // })
   };
 
   const handleChange = event => {
@@ -51,6 +57,25 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
 
   const finalizeOrder = event => {
     //finish order here
+    let pizzaString = "";
+    orders.pizzas.map((pizza) => {
+      if(pizza.name !== "Choose One" && pizza.name){
+        pizzaString += ` ${pizza.size} ${pizza.name} `;
+      }
+      return null;
+    });
+    console.log(pizzaString);
+    console.log(orders);
+    axios.post("/pizza/orders",  {
+      name: "",
+      ingredients: "",
+      user_order: pizzaString,
+      user_address: "",
+      delivery: (orders.delivery)
+    })
+    .then(() => console.log("Order submitted!"))
+    .catch((err) => console.log(err));
+
   };
 
 
@@ -71,10 +96,10 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
 
           <div className="row justify-content-around">
             <button className="btn btn-success" onClick={handleAddPizza}>
-              Add another pizza
+              Add Another Pizza
             </button>
             <button className="btn btn-primary" type="submit">
-              Finalize Order
+              Review Order
             </button>
           </div>
         </form>
@@ -130,10 +155,10 @@ function OrderForm({ orders, setOrders, specialityPizza, setSpecialityPizza }) {
       {/* Go back button */}
       <div className="row justify-content-center">
         <button className="btn btn-danger mr-5" onClick={goBack}>
-          go back to order creation
+          Edit Order
         </button>
         <button className="btn btn-primary ml-5" onClick={finalizeOrder}>
-          Order
+          Submit Order
         </button>
       </div>
     </div>
