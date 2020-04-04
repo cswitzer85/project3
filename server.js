@@ -4,7 +4,7 @@ var session = require("express-session");
 
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
-require(`dotenv`).config();
+require("dotenv").config();
 
 //requireing routes folder
 const routes = require("./routes");
@@ -21,13 +21,13 @@ app.use(express.static("public"));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"))};
+  app.use(express.static("client/build"));
   const path = require('path');
 // Express server will serve index.html for build
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
-
+}
 // We need to use sessions to keep track of our user's login status
 app.use(
     session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -36,8 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Requiring our routes
-require("./routes/api-routes")(app);
-// app.use(routes);
+app.use(routes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {

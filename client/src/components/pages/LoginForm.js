@@ -1,53 +1,65 @@
-import React, { Component } from 'react'
-// import { login } from './UserFunctions'
+import React, { Component } from "react"
+import { Redirect, Link } from "react-router-dom"
+import axios from "axios"
 
 class LoginForm extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            email: '',
-            password: '',
+            email: "",
+            password: "",
             errors: {}
         }
 
-        this.onChange = this.onChange.bind(this)
-        this.onSubmit = this.onSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChnage = this.handleChange.bind(this)
     }
 
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value })
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
     }
-    onSubmit(e) {
-        e.preventDefault()
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log("handleSubmit")
 
-        const user = {
+        axios.post ("/api/login", {
             email: this.state.email,
             password: this.state.password
-        }
-
-        LoginForm(user).then(res => {
-            if (!res.error) {
-                this.props.history.push(`/profile`)
-            }
         })
+            .then(response => {
+                console.log("login response: ")
+                console.log(response)
+                if (response.status === 200) {
+                    this.setState({
+                        redirectTo: "/"
+                    })
+                }
+            }).catch(error => {
+                console.log("login error: ")
+                console.log(error);
+
+            })
     }
 
     render() {
+        if (this.state.redirectTo) {
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        } else {
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-md-6 mt-5 mx-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
-                            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                        <form>
+                            <h1 className="h3 mb-3 font-weight-normal">Please Sign In</h1>
                             <div className="form-group">
-                                <label htmlFor="email">Email address</label>
+                                <label htmlFor="email">Email Address</label>
                                 <input
                                     type="email"
                                     className="form-control"
                                     name="email"
                                     placeholder="Enter email"
                                     value={this.state.email}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                             <div className="form-group">
@@ -58,21 +70,25 @@ class LoginForm extends Component {
                                     name="password"
                                     placeholder="Password"
                                     value={this.state.password}
-                                    onChange={this.onChange}
+                                    onChange={this.handleChange}
                                 />
                             </div>
                             <button
                                 type="submit"
-                                className="btn btn-lg btn-primary btn-block"
-                            >
-                                Sign in
-              </button>
+                                className="btn btn-lg btn-primary btn-block" 
+                                onClick={this.handleSubmit} >
+                            Sign In
+                            </button>
                         </form>
                     </div>
+                </div>
+                <div className="row justify-content-center mt-2">
+                    <p className="text-center">Don't have an account? <Link to="/SignupForm">Sign up here!</Link></p>
                 </div>
             </div>
         )
     }
+  }
 }
 
 export default LoginForm
