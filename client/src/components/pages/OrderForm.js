@@ -5,7 +5,7 @@ import axios from "axios";
 import API from "../../utils/API";
 
 
-function OrderForm({ Orders, setOrders, specialityPizza, setSpecialityPizza }) {
+function OrderForm({ Orders, setOrders, specialtyPizza, setSpecialtyPizza }) {
 
   const [User, setUser] = useState({});
 
@@ -92,7 +92,7 @@ function OrderForm({ Orders, setOrders, specialityPizza, setSpecialityPizza }) {
               sizeValue={pizza.size}
               typeValue={pizza.name}
               handleChange={handleChange}
-              pizzas={specialityPizza}
+              pizzas={specialtyPizza}
             />
           ))}
 

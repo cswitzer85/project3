@@ -7,14 +7,14 @@ function Home() {
   
   const location = useLocation();
 
-  const [specialtyPizza, setSpecialityPizza] = useState();
+  const [specialtyPizza, setSpecialtyPizza] = useState();
 
   const [User, setUser] = useState({});
 
 
   useEffect(() => {
     API.getRecipes()
-      .then(res => setSpecialityPizza(res.data))
+      .then(res => setSpecialtyPizza(res.data))
       .catch(err => console.log(err));
 
     API.getUserData()
@@ -73,7 +73,7 @@ function Home() {
         {User.email? userButtons() : guestButtons()}
       </div>
 
-      {/* Speciality Pizzas */}
+      {/* Specialty Pizzas */}
       <div className="row justify-content-center">
         <h3 className="text-center mt-4 mb-3">Specialty Pizzas</h3>
       </div>

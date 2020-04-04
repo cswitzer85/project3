@@ -9,7 +9,7 @@ import PastOrders from "./pages/PastOrders";
 import API from "../utils/API";
 
 function MainContentContainer() {
-  const [specialityPizza, setSpecialityPizza] = useState([]);
+  const [specialtyPizza, setSpecialtyPizza] = useState([]);
 
   const [Orders, setOrders] = useState({
     pizzas: [
@@ -26,7 +26,7 @@ function MainContentContainer() {
   useEffect(() => {
     //Load necessary info from database
     API.getRecipes()
-      .then((res) => setSpecialityPizza(res.data))
+      .then((res) => setSpecialtyPizza(res.data))
       .catch((err) => console.log(err));
   }, []);
 
@@ -42,13 +42,13 @@ function MainContentContainer() {
             exact
             path="/OrderForm"
             render={(props) => (
-              //Sends in specialities pizza info for use in order forms
+              //Sends in specialty pizza info for use in order forms
               <OrderForm
                 {...props}
                 Orders={Orders}
                 setOrders={setOrders}
-                specialityPizza={specialityPizza}
-                setSpecialityPizza={setSpecialityPizza}
+                specialtyPizza={specialtyPizza}
+                setSpecialtyPizza={setSpecialtyPizza}
               />
             )}
           />
