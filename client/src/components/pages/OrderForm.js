@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
-//import { render } from "@testing-library/react";
 import PizzaForm from "../items/PizzaForm";
 import axios from "axios";
 import API from "../../utils/API";
 
 
-function OrderForm({ Orders, setOrders, specialityPizza, setSpecialityPizza }) {
+function OrderForm({ Orders, setOrders, specialtyPizza, setSpecialtyPizza }) {
 
   const [User, setUser] = useState({});
 
@@ -19,15 +18,10 @@ function OrderForm({ Orders, setOrders, specialityPizza, setSpecialityPizza }) {
   const onSubmit = event => {
     event.preventDefault();
     setOrders({ ...Orders, finalize: true });
-    // axios.post ("/orders", {
-    //   orders: orders
-    // })
   };
 
   const handleChange = event => {
     event.preventDefault();
-    // destructuring doesn't work here for some reason
-    // const [name, value] = event.target;
     const dataid = event.target.dataset.id;
     const temp = Orders.pizzas.slice(0);
     temp[dataid] = {
@@ -98,7 +92,7 @@ function OrderForm({ Orders, setOrders, specialityPizza, setSpecialityPizza }) {
               sizeValue={pizza.size}
               typeValue={pizza.name}
               handleChange={handleChange}
-              pizzas={specialityPizza}
+              pizzas={specialtyPizza}
             />
           ))}
 

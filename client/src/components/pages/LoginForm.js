@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Redirect, Link } from "react-router-dom"
-// import { login } from './UserFunctions'
 import axios from "axios"
 
 class LoginForm extends Component {
@@ -18,7 +17,6 @@ class LoginForm extends Component {
 
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value })
-        // console.log(event.target.value);
     }
     handleSubmit(event) {
         event.preventDefault()
@@ -32,13 +30,6 @@ class LoginForm extends Component {
                 console.log("login response: ")
                 console.log(response)
                 if (response.status === 200) {
-                    // update App.js state
-                    // this.props.updateUser({
-                    //     loggedIn: true,
-                    //     username: response.data.username
-                    // })
-                    
-                    // update the state to redirect to home
                     this.setState({
                         redirectTo: "/"
                     })
@@ -49,15 +40,6 @@ class LoginForm extends Component {
 
             })
     }
-
-
-
-    //     LoginForm(user).then(res => {
-    //         if (!res.error) {
-    //             this.props.history.push(`/profile`)
-    //         }
-    //     })
-    // }
 
     render() {
         if (this.state.redirectTo) {

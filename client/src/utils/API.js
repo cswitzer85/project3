@@ -1,19 +1,19 @@
 import axios from "axios";
 
 export default {
-  getRecipes: function() {
+  getRecipes: function () {
     return axios.get("/pizza/specialties");
   },
 
-  getUserData: function() {
+  getUserData: function () {
     return axios.get("/api/userData");
   },
 
-  logout: function() {
+  logout: function () {
     return axios.get("/api/logout");
   },
 
-  getOrders: function() {
+  getOrders: function () {
     return axios.get("/pizza/orders");
-  }
+  },
 };

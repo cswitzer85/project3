@@ -24,11 +24,9 @@ class SignupForm extends Component {
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value })
-        // console.log(event.target.value);
     }
     handleSubmit(event) {
         event.preventDefault()
-        // console.log(this.target.value);
 
         axios.post ("/api/signup",  {
             firstName: this.state.first_name,
