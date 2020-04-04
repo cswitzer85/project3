@@ -10,8 +10,7 @@ require("dotenv").config();
 const routes = require("./routes");
 
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080
-app.listen(port, () => console.log('server env.PORT || 8080 on: ', port));
+var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
@@ -38,6 +37,9 @@ app.use(passport.session());
 
 // Requiring our routes
 app.use(routes);
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {
