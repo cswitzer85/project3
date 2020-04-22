@@ -37,23 +37,23 @@ Navigate to the URL in your favoirte browser and view available pizzas. If you c
 
 The main page displays all available pizzas along with a photo and description of toppings.
 
-Main Page ![alt text](https://github.com/cswitzer85/project3/blob/master/assets/Project3MainPage.png?raw=true)
+Main Page ![alt text](https://github.com/cswitzer85/project3/blob/development/assets/project3MainPage.png?raw=true)
 
 If the user wants to order a pizza, they can `Sign Up` for an account.
 
-Sign Up Page ![alt text](https://github.com/cswitzer85/project3/blob/master/assets/Project3SignUpPage.png?raw=true)
+Sign Up Page ![alt text](https://github.com/cswitzer85/project3/blob/development/assets/project3SignUpPage.png?raw=true)
 
 If they already have an active account, they can `Log In` instead.
 
-Login Page ![alt text](https://github.com/cswitzer85/project3/blob/master/assets/Project3LogInPage.png?raw=true)
+Login Page ![alt text](https://github.com/cswitzer85/project3/blob/development/assets/project3LogInPage.png?raw=true)
 
 Once logged in, the user can place an order for as many pizzas as they would like!
 
-Order Page ![alt text](https://github.com/cswitzer85/project3/blob/master/assets/Project3OrderPage.png?raw=true)
+Order Page ![alt text](https://github.com/cswitzer85/project3/blob/development/assets/project3OrderPage.png?raw=true)
 
 The final step is to review the order and select Pickup or Delivery.
 
-Review Page ![alt text](https://github.com/cswitzer85/project3/blob/master/assets/Project3OrderPage.png?raw=true)
+Review Page ![alt text](https://github.com/cswitzer85/project3/blob/development/assets/project3OrderPage.png?raw=true)
 
 ## Contributing
 
